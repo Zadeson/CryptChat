@@ -1,0 +1,61 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.dark {
+  background-color: #373643;
+  color: #ffffff;
+}
+
+.form-control {
+  background-color: #343a40;
+  color: #343a40;
+  border-color: #495057;
+}
+.form-group {
+  background-color: #343a40;
+  color: #343a40;
+  border-color: #495057;
+}
+
+.btn {
+  background-color: #495057;
+  color: #ffffff;
+  border-color: #495057;
+}
+
+.btn:hover {
+  background-color: #3e3e3e;
+  border-color: #3e3e3e;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #202022;
+  padding: 1rem;
+}
+
+.chat {
+  margin-left: 250px;
+  padding: 1rem;
+}
+
+.chatBox {
+  height: 75vh;
+  overflow-y: scroll;
+  background-color: #454753;
+  border: 1px solid #495057;
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  width: 100%;
+  
+}
