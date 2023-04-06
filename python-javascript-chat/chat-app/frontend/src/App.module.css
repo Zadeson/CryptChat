@@ -4,6 +4,53 @@
   align-items: center;
   height: 100vh;
 }
+.joinRoomButton {
+  background-color: #495057;
+  color: #ffffff;
+  border: 1px solid #495057;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-left: 10px;
+}
+.roomList {
+  margin-top: 1rem;
+}
+
+.messageWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+
+.messageInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.timestamp {
+  color: lightgray;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem; /* Add this line */
+  background-color: #343a40;
+  color: #343a40;
+  border-color: #495057;
+}
+
+.message {
+  background-color: #495057;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
 
 .dark {
   background-color: #373643;
@@ -12,25 +59,21 @@
 
 .form-control {
   background-color: #343a40;
-  color: #343a40;
-  border-color: #495057;
-}
-.form-group {
-  background-color: #343a40;
-  color: #343a40;
-  border-color: #495057;
+  color: #ffffff;
+  border: 1px solid #495057;
 }
 
 .btn {
   background-color: #495057;
   color: #ffffff;
-  border-color: #495057;
+  border: 1px solid #495057;
 }
 
 .btn:hover {
   background-color: #3e3e3e;
   border-color: #3e3e3e;
 }
+
 
 .sidebar {
   height: 100%;
@@ -47,15 +90,124 @@
   padding: 1rem;
 }
 
+.chatHeader {
+  background-color: #454753;
+  padding: 1rem;
+  text-align: center;
+}
+
 .chatBox {
   height: 75vh;
   overflow-y: scroll;
   background-color: #454753;
   border: 1px solid #495057;
   margin-bottom: 1rem;
+  padding: 1rem; /* Add padding */
+}
+.userMessage {
+  background-color: #2d2d37;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+.messageContainer {
+  display: flex;
+  align-items: flex-start; /* Change this line */
+  margin-bottom: 1rem;
 }
 
+.username {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem;
+  text-align: center;
+}
+
+.otherMessage {
+  background-color: #495057;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+
+.currentRoom {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+.roomSelection {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #373643;
+  padding: 1rem;
+  border-left: 1px solid #495057;
+}
+
+.btnDisabled {
+  background-color: #495057;
+  color: #868895;
+  border: 1px solid #5f606c;
+  opacity: 0.6;
+}
+
+.btnActive {
+  background-color: #495057;
+  color: #868895;
+  border: 1px solid #868895;
+}
+
+.btnDisabled:disabled {
+  cursor: not-allowed;
+}
+
+
+
 .input-group {
-  width: 100%;
-  
+  width: 50%;
+  margin: 0 auto; /* Add this line to center it */
+}
+
+
+/* Add this style to fix the input and scrollbar colors */
+input[type='text'],
+input[type='password'] {
+  color: #ffffff; /* Add this line to make the text color white */
+  background-color: #343a40;
+  border: 1px solid #495057;
+}
+
+input[type='text']:focus,
+input[type='password']:focus {
+  color: #ffffff; /* Add this line to make the text color white when focused */
+  background-color: #343a40;
+  outline: none;
+}
+
+
+
+
+input[type='text']::-webkit-scrollbar,
+input[type='password']::-webkit-scrollbar {
+  width: 6px;
+  background-color: #373643;
+}
+
+input[type='text']::-webkit-scrollbar-thumb,
+input[type='password']::-webkit-scrollbar-thumb {
+  background-color: #495057;
+}
+
+.chatBox::-webkit-scrollbar {
+  width: 6px;
+  background-color: #373643;
+}
+
+.chatBox::-webkit-scrollbar-thumb {
+  background-color: #495057;
 }
