@@ -14,6 +14,8 @@ function App() {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [currentRoom, setCurrentRoom] = useState('');
+  const [joinedRooms, setJoinedRooms] = useState([]);
+
 
   const login = () => {
     // Add your authentication logic here
@@ -26,6 +28,10 @@ function App() {
       setMessages([]);
       setCurrentRoom(room);
       socket.emit("join_room", { username, room });
+
+      if (!joinedRooms.includes(room)) {
+        setJoinedRooms([...joinedRooms, room]);
+      }
   
       socket.on("message", (data) => {
         setMessages((oldMessages) => [
@@ -40,6 +46,13 @@ function App() {
       });
     }
   };
+
+  const joinRoomFromList = (roomToJoin) => {
+    setMessages([]);
+    setCurrentRoom(roomToJoin);
+    socket.emit("join_room", { username, room: roomToJoin });
+  };
+  
   
   
   const sendMessage = () => {
@@ -50,49 +63,51 @@ function App() {
   };
   return (
     <>
-      {!loggedIn ? (
-        <div className={styles.loginContainer}>
-          <div className={styles.dark}>
-            <div className="form-group">
-              <input
-                type="text"
-                className={`form-control ${styles.formControl}`}
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
+            {
+        !loggedIn ? (
+          <div className={styles.loginContainer}>
+            <div className={styles.loginCard}>
+              <h2 className={styles.loginHeader}>LOGIN</h2>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className={`form-control ${styles.formControl}`}
+                  placeholder="Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="password"
+                  className={`form-control ${styles.formControl}`}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className={styles.loginButtonWrapper}>
+                <button
+                  className={`btn ${
+                    !username || !password
+                      ? styles.btnDisabled
+                      : styles.loginButton
+                  }`}
+                  onClick={login}
+                  disabled={!username || !password}
+                  style={
+                    !username || !password
+                      ? { borderColor: "#575a66", color: "#ffffff" }
+                      : { borderColor: "#868895", color: "#ffffff" }
+                  }
+                >
+                  Login
+                </button>
+              </div>
             </div>
-            <div className="form-group">
-              <input
-                type="password"
-                className={`form-control ${styles.formControl}`}
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-            <button
-              className={`btn ${
-                !username || !password ? styles.btnDisabled : styles.btnActive
-              }`}
-              onClick={login}
-              disabled={!username || !password}
-              style={
-                !username || !password
-                  ? { borderColor: "#575a66", color: "#ffffff" }
-                  : { borderColor: "#868895", color: "#ffffff" }
-              }
-            >
-              Login
-            </button>
-
-
           </div>
+        ) : (
 
-          </div>
-        </div>
-      ) : (
         <div className={styles.dark}>
           <div className={styles.sidebar}>
             <div className="form-group">
@@ -116,6 +131,17 @@ function App() {
             >
               <FaUserPlus /> Join Room
             </button>
+            <div className={styles.roomsList}>
+              <h4>Joined Rooms:</h4>
+              <ul>
+                {joinedRooms.map((joinedRoom, index) => (
+                  <li key={index} onClick={() => joinRoomFromList(joinedRoom)}>
+                    {joinedRoom}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
           </div>
           <div className={styles.chat}>
             <div className={styles.chatHeader}>

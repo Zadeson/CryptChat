@@ -3,6 +3,30 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #454753;
+}
+.loginCard {
+  background-color: #343641;
+  padding: 2rem;
+  border-radius: 5px;
+  width: 300px;
+}
+.loginHeader {
+  font-family: "Courier New", monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.loginButtonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.loginButton {
+  background-color: #454753;
+  color: #ffffff;
+  border: 1px solid #454753;
 }
 .joinRoomButton {
   background-color: #495057;
@@ -148,6 +172,26 @@
   padding: 1rem;
   border-left: 1px solid #495057;
 }
+
+.roomsList {
+  margin-top: 1rem;
+}
+
+.roomsList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.roomsList li {
+  cursor: pointer;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.roomsList li:hover {
+  text-decoration: underline;
+}
+
 
 .btnDisabled {
   background-color: #495057;
