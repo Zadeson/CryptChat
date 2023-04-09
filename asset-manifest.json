@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/CryptChat/static/css/main.d8d96e76.css",
+    "main.js": "/CryptChat/static/js/main.1c908d23.js",
+    "static/js/787.cda612ba.chunk.js": "/CryptChat/static/js/787.cda612ba.chunk.js",
+    "index.html": "/CryptChat/index.html",
+    "main.d8d96e76.css.map": "/CryptChat/static/css/main.d8d96e76.css.map",
+    "main.1c908d23.js.map": "/CryptChat/static/js/main.1c908d23.js.map",
+    "787.cda612ba.chunk.js.map": "/CryptChat/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d8d96e76.css",
+    "static/js/main.1c908d23.js"
+  ]
+}
