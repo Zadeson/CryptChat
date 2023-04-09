@@ -42,14 +42,12 @@ def handle_join_room_event(data):
 @socketio.on('leave_room')
 def handle_leave_room_event(data):
     leave_room(data['room'])
-    send({'msg': data['username'] + " has left the room.", 'isServerMessage': True}, room=data['room'])
 
 room_messages = {} # Add this line to store messages for each room
 
 @socketio.on('join_room')
 def handle_join_room_event(data):
     join_room(data['room'])
-    socketio.emit("message", {"username": data["username"], "msg": "has joined the room.", "isServerMessage": True}, room=data["room"])
 
     if data['room'] in room_messages:  # Add this block
         for msg in room_messages[data['room']]:
